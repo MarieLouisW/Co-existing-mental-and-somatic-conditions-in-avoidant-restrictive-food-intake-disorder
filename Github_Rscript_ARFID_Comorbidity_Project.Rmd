@@ -137,7 +137,7 @@ df_cens <- read_csv("P:\ARFID_CATSS\ARFID_CATSS_Research\_Data\Analysis_data\emi
 #               html_font="Arial", font_size="10")
 ```
 
-# ARFID phenotype at age 9/12 (6-12)
+# ARFID phenotype at age 9 or 12 years
 
 ```{r arfiddx, message=FALSE, warning=FALSE}
 df_crit <- df_catss9 %>%
@@ -451,7 +451,7 @@ df_crit_distinct <- df_crit %>%
 ```
 
 # Descriptives
-## Descriptives I for MS Figure 1 and SM Table S2
+## Descriptives I for MS Figure 1 and SM Table S1
 
 ```{r casedescr1, message=FALSE, warning=FALSE, results="asis"}
 df_crit_distinct %>%
@@ -505,7 +505,7 @@ df_crit_distinct %>%
 ```
 
 
-## Descriptives II for MS Figure 1 and SM Table S2
+## Descriptives II for MS Figure 1 and SM Table S1
 
 ```{r casedescr2, message=FALSE, warning=FALSE, results="asis"}
 n_ARFID <- df_crit_distinct %>%
@@ -778,7 +778,7 @@ df_crit_distinct %>%
   count()
 ```
 
-## Descriptives IV for SM Table S2 (Chi-squared tests)
+## Descriptives IV for SM Table S1 (Chi-squared tests)
 
 ```{r chisquared, message=FALSE, warning=FALSE}
 # test 1
@@ -815,7 +815,7 @@ chisq.test(chisq_by$caseAC, chisq_by$bygroup)
 ```
 
 
-# Define comorbidities - ICD chapters, individual/single diagnoses, and grouped conditions (SM Table S1)
+# Define comorbidities - ICD chapters, individual/single diagnoses, and grouped conditions (SM Table S2)
 
 ```{r comorbprep, message=FALSE, warning=FALSE}
 df_comorb_all <- df_crit %>%
@@ -1328,7 +1328,7 @@ df_comorb_disordergroups %>%
               position="left", html_font="Arial", font_size="10")
 ```
 
-## Case numbers for SM Table S1
+## Case numbers for SM Table S2
 
 ```{r casenumbers, message=FALSE, warning=FALSE, results="asis"}
 df_comorb_diagnoses_pre %>%
@@ -1339,7 +1339,7 @@ df_comorb_diagnoses_pre %>%
   filter(caseAC==1) %>% # Filter ARFID cases only
   dplyr::select(comorb, n) %>%
   knitr::kable(format="html", align="l", digits=2,
-               caption="N of events in ARFID (for SM Table S1) - I") %>%
+               caption="N of events in ARFID (for SM Table S2) - I") %>%
   kable_paper(bootstrap_options="striped", full_width=FALSE, 
               position="left", html_font="Arial", font_size="10")
 
@@ -1351,7 +1351,7 @@ df_comorb_chapters_pre %>%
   filter(caseAC==1) %>% # Filter ARFID cases only
   dplyr::select(comorb, n) %>%
   knitr::kable(format="html", align="l", digits=2,
-               caption="N of events in ARFID (for SM Table S1) - II") %>%
+               caption="N of events in ARFID (for SM Table S2) - II") %>%
   kable_paper(bootstrap_options="striped", full_width=FALSE, 
               position="left", html_font="Arial", font_size="10")
 
@@ -1363,7 +1363,7 @@ df_comorb_disordergroups_pre %>%
   filter(caseAC==1) %>% # Filter ARFID cases only
   dplyr::select(comorb, n) %>%
   knitr::kable(format="html", align="l", digits=2,
-               caption="N of events in ARFID (for SM Table S1) - III") %>%
+               caption="N of events in ARFID (for SM Table S2) - III") %>%
   kable_paper(bootstrap_options="striped", full_width=FALSE, 
               position="left", html_font="Arial", font_size="10")
 ```
@@ -4345,7 +4345,7 @@ tablecoxregbase %>%
               position="left", html_font="Arial", font_size="10") 
 ```
 
-### Sex-stratified model (SM Table S5)
+### Sex-stratified model (SM Table S8)
 
 ```{r tablecoxregsex, message=FALSE, warning=FALSE, results="asis"}
 labelorder <- tablecoxregbase %>%
@@ -4401,7 +4401,7 @@ labelorder %>%
               position="left", html_font="Arial", font_size="10")
 ```
 
-### Age group-stratified model (SM Table S6)
+### Age group-stratified model (SM Table S11)
 
 ```{r tablecoxregage, message=FALSE, warning=FALSE, results="asis"}
 tablecoxregperage <- bind_rows(coxreg_agestrata_perage,
@@ -4463,7 +4463,7 @@ labelorder %>%
               position="left", html_font="Arial", font_size="10")
 ```
 
-## Tables for number of distinct diagnoses (SM Tables S8 and S9) and inpatient treatment duration (SM Tables S10 and S11)
+## Tables for number of distinct diagnoses (SM Tables S6 and S9) and inpatient treatment duration (SM Tables S7 and S10)
 
 ```{r analysisoutc23tables, message=FALSE, warning=FALSE, results="asis"}
 # Main analysis 2
@@ -4838,7 +4838,7 @@ cumincplot_arrange_diagnoses <- ggarrange(plotlist=cumincplotlist_diagnoses,
 ```
 
 
-## Cumulative incidence table/absolute risk assessment (SM Table S7)
+## Cumulative incidence table/absolute risk assessment (SM Table S5)
 
 ```{r cuminctable, message=FALSE, warning=FALSE, results="asis"}
 cumincplotdata_ch_groups_table <- cumincplotdata %>%
